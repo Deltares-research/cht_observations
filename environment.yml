@@ -1,0 +1,16 @@
+name: cht_observations
+
+channels:
+  - conda-forge
+
+dependencies:
+  - black
+  - build
+  - mypy
+  - pip
+  - pip:
+    - NDBC
+    - noaa_coops
+  - pytest
+  - python=3.10
+  - twine
