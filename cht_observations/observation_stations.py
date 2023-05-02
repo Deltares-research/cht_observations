@@ -11,7 +11,6 @@ df = coops.get_data("9447130", t0, t1)
 
 """
 
-import datetime
 
 class StationSource:
     def __init__(self):
@@ -26,10 +25,13 @@ class StationSource:
     def get_data(self):
         pass
 
+
 def source(name):
     if name == "ndbc":
         from _ndbc import Source
+
         return Source()
     elif name == "noaa_coops":
         from _noaa_coops import Source
+
         return Source()

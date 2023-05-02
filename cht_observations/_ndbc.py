@@ -1,5 +1,6 @@
-from cht.observation_stations.observation_stations import StationSource
+from cht_observations.observation_stations import StationSource
 from NDBC.NDBC import DataBuoy
+
 
 class Source(StationSource):
     def __init__(self):
@@ -10,11 +11,7 @@ class Source(StationSource):
 
     def get_meta_data(self, id):
         self.db.set_station_id(id)
-        try:
-            meta_data = self.db.station_info
-        except:
-            meta_data = None
-        return meta_data
+        return getattr(self.db, "station_info", None)
 
     def get_data(self, id, variable=None):
         pass
