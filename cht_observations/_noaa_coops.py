@@ -1,4 +1,4 @@
-from cht.observation_stations.observation_stations import StationSource
+from cht_observations.observation_stations import StationSource
 from noaa_coops import Station
 
 
@@ -20,6 +20,7 @@ class Source(StationSource):
 
         if varname == "water_level":
             product = varname
+            product_output = "v"
         if units == "SI":
             units = "metric"
 
@@ -32,4 +33,4 @@ class Source(StationSource):
             units=units,
             time_zone="gmt",
         )
-        return df[product]
+        return df[product_output]
