@@ -36,7 +36,7 @@ class Source(StationSource):
         units:str="SI", 
         datum:str="MSL"
     ):
-        """"
+        """
         Get data from NOAA COOPS
 
         Parameters
@@ -58,7 +58,7 @@ class Source(StationSource):
         -------
         df : pandas.DataFrame
             Data frame with data
-        """"
+        """
         t0_string = tstart.strftime("%Y%m%d")
         t1_string = tstop.strftime("%Y%m%d")
 
