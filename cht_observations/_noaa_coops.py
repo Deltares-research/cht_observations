@@ -1,25 +1,32 @@
 from cht_observations.observation_stations import StationSource
-from noaa_coops import Station, get_stations_from_bbox
+from noaa_coops import Station
 
 import requests
+
 
 class Source(StationSource):
     def __init__(self):
         pass
 
     def get_active_stations(self):
-        data_url = "https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations.json"
+        data_url = (
+            "https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations.json"
+        )
         response = requests.get(data_url)
         json_dict = response.json()
 
         station_list = []
         for station_dict in json_dict["stations"]:
-            station_list.append({"name": station_dict["name"],
-                                    "id": station_dict["id"],
-                                    "lon": float(station_dict["lng"]),
-                                    "lat": float(station_dict["lat"])})
+            station_list.append(
+                {
+                    "name": station_dict["name"],
+                    "id": station_dict["id"],
+                    "lon": float(station_dict["lng"]),
+                    "lat": float(station_dict["lat"]),
+                }
+            )
 
-        self.active_stations = station_list    
+        self.active_stations = station_list
         return station_list
 
     def get_meta_data(self, id):
@@ -29,12 +36,12 @@ class Source(StationSource):
 
     def get_data(
         self,
-        id:int, 
-        tstart, 
-        tstop, 
-        varname:str ="water_level", 
-        units:str="SI", 
-        datum:str="MSL"
+        id: int,
+        tstart,
+        tstop,
+        varname: str = "water_level",
+        units: str = "SI",
+        datum: str = "MSL",
     ):
         """
         Get data from NOAA COOPS

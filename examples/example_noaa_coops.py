@@ -1,6 +1,6 @@
 """
 Example: NOAA COOPS
-"""	
+"""
 
 import datetime
 import cht_observations.observation_stations as obs
