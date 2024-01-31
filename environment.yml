@@ -6,6 +6,7 @@ channels:
 dependencies:
   - black
   - build
+  - geopandas
   - mypy
   - pip
   - pip:
@@ -13,4 +14,5 @@ dependencies:
     - noaa_coops
   - pytest
   - python=3.10
+  - shapely
   - twine
