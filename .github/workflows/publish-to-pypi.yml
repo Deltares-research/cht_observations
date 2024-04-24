@@ -18,7 +18,7 @@
 # - When a new release is created, it will build and upload to the real PyPI
 ---
 env:
-  PACKAGE_NAME: "cht_pbservations"  # the name of your package on PyPI
+  PACKAGE_NAME: "cht_observations"  # the name of your package on PyPI
   PYTHON_VERSION: "3.10"        # the version of python used to build & publish the package. Tests will be run for all versions in the matrix
 
 name: Build and Upload to PyPI
