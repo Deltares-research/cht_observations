@@ -66,8 +66,8 @@ class Source(StationSource):
         df : pandas.DataFrame
             Data frame with data
         """
-        t0_string = tstart.strftime("%Y%m%d")
-        t1_string = tstop.strftime("%Y%m%d")
+        t0_string = tstart.strftime("%Y%m%d %H:%M")
+        t1_string = tstop.strftime("%Y%m%d %H:%M")
 
         if varname == "water_level":
             product = varname
