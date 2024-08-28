@@ -5,7 +5,6 @@ channels:
 
 dependencies:
   - black
-  - build
   - geopandas
   - mypy
   - pip
