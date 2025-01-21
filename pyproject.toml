@@ -17,7 +17,7 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Hydrology",
 ]
 requires-python = ">=3.10"
-dependencies = ["NDBC", "noaa_coops"]
+dependencies = ["NDBC", "noaa_coops", "geopandas"]
 dynamic = ["version"]
 
 [project.optional-dependencies]
