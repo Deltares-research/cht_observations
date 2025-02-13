@@ -4,8 +4,8 @@ import geopandas as gpd
 import pandas as pd
 import pytest
 
-from cht_observations._ndbc import Source as NDBCSource
-from cht_observations._noaa_coops import Source as NOAASource
+from cht_observations._ndbc import NDBCSource
+from cht_observations._noaa_coops import NOAASource
 from cht_observations._station_source import StationSource
 from cht_observations.observation_stations import source
 

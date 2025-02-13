@@ -1,7 +1,7 @@
 import pytest
 
 from cht_observations import utils
-from cht_observations._ndbc import Source
+from cht_observations._ndbc import NDBCSource
 
 
 class MockDataBuoy:
@@ -24,12 +24,12 @@ def mock_data_buoy(monkeypatch):
         self.active_stations = []
         self.db = MockDataBuoy()
 
-    monkeypatch.setattr(Source, "__init__", mock_init)
+    monkeypatch.setattr(NDBCSource, "__init__", mock_init)
 
 
 @pytest.fixture
 def ndbc_source(mock_data_buoy):
-    return Source()
+    return NDBCSource()
 
 
 def test_get_active_stations(ndbc_source, monkeypatch):
