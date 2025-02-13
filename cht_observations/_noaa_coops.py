@@ -8,7 +8,7 @@ from noaa_coops import Station
 from cht_observations._station_source import StationSource
 
 
-class Source(StationSource):
+class NOAASource(StationSource):
     def __init__(self):
         self.active_stations = []
 
@@ -34,7 +34,7 @@ class Source(StationSource):
         return station_list
 
     def get_meta_data(self, id: int) -> dict[str, Any]:
-        station = Station(id=id)
+        station = Station(id=str(id))
         meta_data = station.metadata
         return meta_data
 

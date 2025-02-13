@@ -7,7 +7,7 @@ from cht_observations import utils
 from cht_observations._station_source import StationSource
 
 
-class Source(StationSource):
+class NDBCSource(StationSource):
     db: DataBuoy
 
     def __init__(self):
