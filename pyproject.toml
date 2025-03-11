@@ -21,7 +21,7 @@ dependencies = ["NDBC", "noaa_coops", "geopandas"]
 dynamic = ["version"]
 
 [project.optional-dependencies]
-tests = ["pytest"]
+tests = ["pytest", "pytest-cov"]
 
 [tool.setuptools]
 zip-safe = true
@@ -35,7 +35,9 @@ include = ["cht_observations"]
 [tool.setuptools.package-data]
 "cht_observations" = ["py.typed"]
 
-# TODO
 [project.urls]
 Source = "https://github.com/Deltares/cht_observations"
-#Documentation = "https://deltares.github.io/Ribasim"
+
+[tool.pytest.ini_options]
+addopts = "--cov cht_observations --cov-report xml"
+testpaths = ["tests"]
