@@ -41,5 +41,5 @@ Source = "https://github.com/Deltares/cht_observations"
 #Documentation = "https://deltares.github.io/Ribasim"
 
 [tool.pytest.ini_options]
-addopts = "--cov cht_cyclones --cov-report xml"
+addopts = "--cov cht_observations --cov-report xml"
 testpaths = ["tests"]
