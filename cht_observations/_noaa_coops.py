@@ -1,14 +1,18 @@
-from cht_observations.observation_stations import StationSource
+from datetime import datetime
+from typing import Any
+
+import pandas as pd
+import requests
 from noaa_coops import Station
 
-import requests
+from cht_observations._station_source import StationSource
 
 
-class Source(StationSource):
+class NOAASource(StationSource):
     def __init__(self):
-        pass
+        self.active_stations = []
 
-    def get_active_stations(self):
+    def get_active_stations(self) -> list[dict[str, Any]]:
         data_url = (
             "https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations.json"
         )
@@ -29,20 +33,20 @@ class Source(StationSource):
         self.active_stations = station_list
         return station_list
 
-    def get_meta_data(self, id):
-        station = Station(id=id)
+    def get_meta_data(self, id: int) -> dict[str, Any]:
+        station = Station(id=str(id))
         meta_data = station.metadata
         return meta_data
 
     def get_data(
         self,
         id: int,
-        tstart,
-        tstop,
+        tstart: datetime,
+        tstop: datetime,
         varname: str = "water_level",
         units: str = "SI",
         datum: str = "MSL",
-    ):
+    ) -> pd.DataFrame:
         """
         Get data from NOAA COOPS
 
@@ -84,4 +88,4 @@ class Source(StationSource):
             units=units,
             time_zone="gmt",
         )
-        return df[product_output]
+        return df[product_output].to_frame()
