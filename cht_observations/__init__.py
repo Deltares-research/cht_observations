@@ -1,8 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Apr 25 10:58:08 2021
-
-@author: ormondt
-"""
+"""cht_observations: package for retrieving observational data from station networks."""
 
 __version__ = "0.2.1"
