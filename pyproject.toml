@@ -41,3 +41,4 @@ Source = "https://github.com/Deltares/cht_observations"
 [tool.pytest.ini_options]
 addopts = "--cov cht_observations --cov-report xml"
 testpaths = ["tests"]
+
