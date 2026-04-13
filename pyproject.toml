@@ -17,7 +17,12 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Hydrology",
 ]
 requires-python = ">=3.10"
-dependencies = ["NDBC", "noaa_coops", "geopandas"]
+dependencies = ["NDBC", "noaa_coops", "geopandas", "requests", "pandas"]
+
+# Optional providers:
+# * "copernicus" — pip install copernicusmarine
+# * "gesla"      — requires local bulk download from https://gesla.org
+# * "grdc"       — requires local export from https://portal.grdc.bafg.de
 dynamic = ["version"]
 
 [project.optional-dependencies]
